@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Markdown学习笔记 | Hikari的红色小桶</title><meta name="keywords" content="Markdown,Typora"><meta name="author" content="Hikari"><meta name="copyright" content="Hikari"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Markdown编辑的学习笔记，基于Typora Markdown文档编辑器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown学习笔记">
+<meta property="og:url" content="http://example.com/2021/10/26/Markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Hikari的红色小桶">
+<meta property="og:description" content="Markdown编辑的学习笔记，基于Typora Markdown文档编辑器">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://theme.typora.io/media/thumbnails/drake-thumb.png">
+<meta property="article:published_time" content="2021-10-26T12:08:13.000Z">
+<meta property="article:modified_time" content="2021-10-26T12:14:02.853Z">
+<meta property="article:author" content="Hikari">
+<meta property="article:tag" content="Markdown">
+<meta property="article:tag" content="Typora">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://theme.typora.io/media/thumbnails/drake-thumb.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/10/26/Markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Markdown学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-10-26 20:14:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/joey.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://theme.typora.io/media/thumbnails/drake-thumb.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hikari的红色小桶</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Markdown学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-26T12:08:13.000Z" title="发表于 2021-10-26 20:08:13">2021-10-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-10-26T12:14:02.853Z" title="更新于 2021-10-26 20:14:02">2021-10-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/">文档处理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Markdown学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Markdown编辑快速入门（Typora"><a href="#Markdown编辑快速入门（Typora" class="headerlink" title="Markdown编辑快速入门（Typora)"></a>Markdown编辑快速入门（Typora)</h1><h2 id="1-Markdown标题"><a href="#1-Markdown标题" class="headerlink" title="1. Markdown标题"></a>1. Markdown标题</h2><p>方法1：使用=和-标记一级标题以及二级标题  </p>
+<p>方法2：使用#号来表示几级的标题（几个#号就代表了几级标题） </p>
+<h2 id="2-Markdown-段落"><a href="#2-Markdown-段落" class="headerlink" title="2. Markdown 段落"></a>2. Markdown 段落</h2><p>Markdown的段落直接编辑填写就好，没有特殊的格式。段落的换行是使用两个以上的空格+回车。  </p>
+<h3 id="2-1-Markdown的字体"><a href="#2-1-Markdown的字体" class="headerlink" title="2.1. Markdown的字体"></a>2.1. Markdown的字体</h3><p>使用*一左一右可以表示Markdown斜体   ：</p>
+<p><em>斜体</em></p>
+<p>使用**两左两右也可以表粗体：   </p>
+<p><strong>粗体</strong></p>
+<p>使用***三左三右可以表示粗斜体：   </p>
+<p><em><strong>粗斜体</strong></em></p>
+<p>（也可以将*替换为_，效果相同）   </p>
+<h3 id="2-2-Markdown的分割线"><a href="#2-2-Markdown的分割线" class="headerlink" title="2.2. Markdown的分割线"></a>2.2. Markdown的分割线</h3><p>你可以在一行中用三个以上的星号*、减号-、底线_来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。(任意一种写法的效果都相同)</p>
+<hr>
+<h3 id="2-3-Markdown的删除线"><a href="#2-3-Markdown的删除线" class="headerlink" title="2.3. Markdown的删除线"></a>2.3. Markdown的删除线</h3><p>只需要在文字两端分别加上两个波浪线~~即可：   </p>
+<p><del>BDMap</del></p>
+<h3 id="2-4-Markdown的下划线"><a href="#2-4-Markdown的下划线" class="headerlink" title="2.4. Markdown的下划线"></a>2.4. Markdown的下划线</h3><p>使用HTML的u标签实现”<u> </u>“</p>
+<p>效果如：<u>下划线</u></p>
+<h3 id="2-5-Markdown的脚注"><a href="#2-5-Markdown的脚注" class="headerlink" title="2.5. Markdown的脚注"></a>2.5. Markdown的脚注</h3><p>对文本补充说明：格式为: 【^ 要注明的文本】（<strong>得使用英文的中括号</strong>）</p>
+<p>如此：Building Information Modeling <a href="%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E8%84%9A%E6%B3%A8%E7%9A%84%E7%A4%BA%E4%BE%8B">^1</a>    </p>
+<h2 id="3-Markdown列表"><a href="#3-Markdown列表" class="headerlink" title="3. Markdown列表"></a>3. Markdown列表</h2><p>支持有序列表和无序列表</p>
+<h3 id="3-1-无序列表"><a href="#3-1-无序列表" class="headerlink" title="3.1. 无序列表"></a>3.1. 无序列表</h3><p>使用（*）、（+）、（-）作为列表标记，注意这些标记后加一个空格再填入内容，效果如下：</p>
+<ul>
+<li>Internet of Things</li>
+<li>Computer Vision </li>
+</ul>
+<h3 id="3-2-有序列表"><a href="#3-2-有序列表" class="headerlink" title="3.2. 有序列表"></a>3.2. 有序列表</h3><p>使用数字并加上一个点（.）来表示，也是需要打一个空格再键入：</p>
+<ol>
+<li>CityGML</li>
+<li>IFC</li>
+</ol>
+<h3 id="3-3-列表嵌套"><a href="#3-3-列表嵌套" class="headerlink" title="3.3. 列表嵌套"></a>3.3. 列表嵌套</h3><p>只需要在子列表的选项前添加四个空格即可：</p>
+<ol>
+<li>第一件事     <pre><code>- 明天
+- 后天
+</code></pre>
+</li>
+<li>第二件事<ul>
+<li>周三</li>
+<li>周六</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-Markdown区块"><a href="#4-Markdown区块" class="headerlink" title="4. Markdown区块"></a>4. Markdown区块</h2><p>Markdown 区块引用是在段落开头使用 <strong>&gt;</strong> 符号 ，然后后面紧跟一个<strong>空格</strong>符号，也可以见得区块可以套用，一个 <strong>&gt;</strong> 符号是最外层，两个 <strong>&gt;</strong> 符号是第一层嵌套，以此类推：</p>
+<blockquote>
+<p>区块引用</p>
+<blockquote>
+<p>芜湖</p>
+</blockquote>
+</blockquote>
+<p>如果在列表中使用区块：需要在&gt;之前加上四个空格缩进。</p>
+<ol>
+<li><p>第一个</p>
+<blockquote>
+<p>区块使用<br>12345</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="5-Markdown代码"><a href="#5-Markdown代码" class="headerlink" title="5. Markdown代码"></a>5. Markdown代码</h2><p>如果是段落上的一个函数或者代码片段可以用反括号包起来（`），这个就是esc下面那个按键：</p>
+<p><code>printf(&quot;Hello world!&quot;);</code></p>
+<p>如果是一个代码区块，使用4个空格或者1个制表符（Tab健）。也可以用```包裹一段代码，可以制定一种语言。比如我指定css：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Markdown链接"><a href="#6-Markdown链接" class="headerlink" title="6. Markdown链接"></a>6. Markdown链接</h2><p>使用方法：【链接名称】（链接地址）。或者用&lt;&gt;框住网址。 p.s. 这里都是要使用英文的对应键。</p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/maps/?hl=zh-cn">Google map</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.google.com/maps/?hl=zh-cn">https://www.google.com/maps/?hl=zh-cn</a></p>
+<p>高级链接：通过变量来设置一个链接，变量赋值在文档末尾进行：</p>
+<p>这个链接用bili来作为网址变量<a target="_blank" rel="noopener" href="https://www.bilibili.com/">Bilibili</a>. (实际的写法是[Bilibili][bili],并且在文章后面定义了网址链接。)</p>
+<h2 id="7-Markdown图片"><a href="#7-Markdown图片" class="headerlink" title="7. Markdown图片"></a>7. Markdown图片</h2><p>图片语法：</p>
+<p>![alt 属性文本](图片地址)</p>
+<p>![alt 属性文本](图片地址 “可选标题”)</p>
+<p><img src="https://img9.doubanio.com/view/photo/l/public/p2232705511.webp" alt="Joey Wong" title="Joey Wong"></p>
+<p>因为markdown暂时还没有办法指定图片高度宽度，我们也可以通过一个img标签来实现插入图片：内容为</p>
+<p>&lt;img src=”<a target="_blank" rel="noopener" href="https://img9.doubanio.com/view/photo/l/public/p2232705497.webp&quot;">https://img9.doubanio.com/view/photo/l/public/p2232705497.webp&quot;</a> width=”30%”/&gt;</p>
+<img src="https://img9.doubanio.com/view/photo/l/public/p2232705497.webp" width="30%"/>
+
+
+
+<h2 id="8-Markdown表格"><a href="#8-Markdown表格" class="headerlink" title="8. Markdown表格"></a>8. Markdown表格</h2><table>
+<thead>
+<tr>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+</tbody></table>
+<p>这里比较推荐直接用Typora的工具生成表格。</p>
+<h2 id="9-Markdown的其他技巧"><a href="#9-Markdown的其他技巧" class="headerlink" title="9. Markdown的其他技巧"></a>9. Markdown的其他技巧</h2><h3 id="9-1-多种HTML元素支持："><a href="#9-1-多种HTML元素支持：" class="headerlink" title="9.1. 多种HTML元素支持："></a>9.1. 多种HTML元素支持：</h3><p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。</p>
+<p>目前支持的 HTML 元素有：<code>&lt;kbd&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;</code>等 。</p>
+<h3 id="9-2-转义"><a href="#9-2-转义" class="headerlink" title="9.2. 转义"></a>9.2. 转义</h3><p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠\转义特殊字符：</p>
+<p>**加粗字体**</p>
+<p>\ 反斜线</p>
+<p>* 星号</p>
+<p>[] 方括号</p>
+<h3 id="9-3-公式"><a href="#9-3-公式" class="headerlink" title="9.3. 公式"></a>9.3. 公式</h3><p>Markdown 使用数学公式可以使用两个美元符号$$，分别在开头和结尾包裹TeX或者LaTeX格式的数学公式来实现。</p>
+<img src="https://www.runoob.com/wp-content/uploads/2019/03/1061D800-D44C-436D-A1EA-1CBDA95A5209.jpg" width="80%" />
+
+<p>图源：<a target="_blank" rel="noopener" href="https://www.runoob.com/wp-content/uploads/2019/03/1061D800-D44C-436D-A1EA-1CBDA95A5209.jpg">runoob.com</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Hikari</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/26/Markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">http://example.com/2021/10/26/Markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hikari的红色小桶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Markdown/">Markdown</a><a class="post-meta__tags" href="/tags/Typora/">Typora</a></div><div class="post_share"><div class="social-share" data-image="https://theme.typora.io/media/thumbnails/drake-thumb.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/10/26/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%20Hello%20world/"><img class="next-cover" src="https://preview.redd.it/n93k6oc2wab71.png?width=3840&amp;format=png&amp;auto=webp&amp;s=31f81b78691558855767987651ce41b3f2606d77" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World, 你好世界</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/joey.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Hikari</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Hikari-C"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Hikari-C" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:chuangax@connect.ust.hk" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">2021年秋</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown%E7%BC%96%E8%BE%91%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%EF%BC%88Typora"><span class="toc-number">1.</span> <span class="toc-text">Markdown编辑快速入门（Typora)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Markdown%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">1. Markdown标题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Markdown-%E6%AE%B5%E8%90%BD"><span class="toc-number">1.2.</span> <span class="toc-text">2. Markdown 段落</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Markdown%E7%9A%84%E5%AD%97%E4%BD%93"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1. Markdown的字体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Markdown%E7%9A%84%E5%88%86%E5%89%B2%E7%BA%BF"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2. Markdown的分割线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-Markdown%E7%9A%84%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3. Markdown的删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-Markdown%E7%9A%84%E4%B8%8B%E5%88%92%E7%BA%BF"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4. Markdown的下划线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-Markdown%E7%9A%84%E8%84%9A%E6%B3%A8"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5. Markdown的脚注</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Markdown%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3. Markdown列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1. 无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2. 有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%88%97%E8%A1%A8%E5%B5%8C%E5%A5%97"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3. 列表嵌套</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Markdown%E5%8C%BA%E5%9D%97"><span class="toc-number">1.4.</span> <span class="toc-text">4. Markdown区块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Markdown%E4%BB%A3%E7%A0%81"><span class="toc-number">1.5.</span> <span class="toc-text">5. Markdown代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Markdown%E9%93%BE%E6%8E%A5"><span class="toc-number">1.6.</span> <span class="toc-text">6. Markdown链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Markdown%E5%9B%BE%E7%89%87"><span class="toc-number">1.7.</span> <span class="toc-text">7. Markdown图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Markdown%E8%A1%A8%E6%A0%BC"><span class="toc-number">1.8.</span> <span class="toc-text">8. Markdown表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Markdown%E7%9A%84%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7"><span class="toc-number">1.9.</span> <span class="toc-text">9. Markdown的其他技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-1-%E5%A4%9A%E7%A7%8DHTML%E5%85%83%E7%B4%A0%E6%94%AF%E6%8C%81%EF%BC%9A"><span class="toc-number">1.9.1.</span> <span class="toc-text">9.1. 多种HTML元素支持：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-%E8%BD%AC%E4%B9%89"><span class="toc-number">1.9.2.</span> <span class="toc-text">9.2. 转义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-3-%E5%85%AC%E5%BC%8F"><span class="toc-number">1.9.3.</span> <span class="toc-text">9.3. 公式</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/10/26/Markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Markdown学习笔记"><img src="https://theme.typora.io/media/thumbnails/drake-thumb.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown学习笔记"/></a><div class="content"><a class="title" href="/2021/10/26/Markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Markdown学习笔记">Markdown学习笔记</a><time datetime="2021-10-26T12:08:13.000Z" title="发表于 2021-10-26 20:08:13">2021-10-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/26/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%20Hello%20world/" title="Hello World, 你好世界"><img src="https://preview.redd.it/n93k6oc2wab71.png?width=3840&amp;format=png&amp;auto=webp&amp;s=31f81b78691558855767987651ce41b3f2606d77" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World, 你好世界"/></a><div class="content"><a class="title" href="/2021/10/26/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%20Hello%20world/" title="Hello World, 你好世界">Hello World, 你好世界</a><time datetime="2021-10-25T16:33:01.000Z" title="发表于 2021-10-26 00:33:01">2021-10-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/wallpaper.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 By Hikari</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Titongpaolu, on the way</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
