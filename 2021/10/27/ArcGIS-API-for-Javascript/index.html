@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ArcGIS API for JavaScript | Hikari的红色小桶</title><meta name="keywords" content="ArcGIS,Web,JavaScript"><meta name="author" content="Hikari"><meta name="copyright" content="Hikari"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ArcGIS API for JavaScript通用基本步骤Tutorial: Display a mapTips:Tutorial: Add a point, line, and polygon整体而言可以统一理解为Graphics Layer， 因此在require module的步骤上，我们需要包含“Graphic”与“GraphicsLayer”。 1234567891011requir">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArcGIS API for JavaScript">
+<meta property="og:url" content="http://example.com/2021/10/27/ArcGIS-API-for-Javascript/index.html">
+<meta property="og:site_name" content="Hikari的红色小桶">
+<meta property="og:description" content="ArcGIS API for JavaScript通用基本步骤Tutorial: Display a mapTips:Tutorial: Add a point, line, and polygon整体而言可以统一理解为Graphics Layer， 因此在require module的步骤上，我们需要包含“Graphic”与“GraphicsLayer”。 1234567891011requir">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.esri.com/about/newsroom/wp-content/uploads/2018/11/p6p2-lg-2.jpg">
+<meta property="article:published_time" content="2021-10-27T06:22:17.000Z">
+<meta property="article:modified_time" content="2021-10-28T11:52:07.883Z">
+<meta property="article:author" content="Hikari">
+<meta property="article:tag" content="ArcGIS">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.esri.com/about/newsroom/wp-content/uploads/2018/11/p6p2-lg-2.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/10/27/ArcGIS-API-for-Javascript/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'ArcGIS API for JavaScript',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-10-28 19:52:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/joey.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://www.esri.com/about/newsroom/wp-content/uploads/2018/11/p6p2-lg-2.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hikari的红色小桶</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">ArcGIS API for JavaScript</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-27T06:22:17.000Z" title="发表于 2021-10-27 14:22:17">2021-10-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-10-28T11:52:07.883Z" title="更新于 2021-10-28 19:52:07">2021-10-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ArcGIS/">ArcGIS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="ArcGIS API for JavaScript"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="ArcGIS-API-for-JavaScript"><a href="#ArcGIS-API-for-JavaScript" class="headerlink" title="ArcGIS API for JavaScript"></a>ArcGIS API for JavaScript</h1><h2 id="通用基本步骤"><a href="#通用基本步骤" class="headerlink" title="通用基本步骤"></a>通用基本步骤</h2><h2 id="Tutorial-Display-a-map"><a href="#Tutorial-Display-a-map" class="headerlink" title="Tutorial: Display a map"></a>Tutorial: Display a map</h2><h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h3><h2 id="Tutorial-Add-a-point-line-and-polygon"><a href="#Tutorial-Add-a-point-line-and-polygon" class="headerlink" title="Tutorial: Add a point, line, and polygon"></a>Tutorial: Add a point, line, and polygon</h2><p>整体而言可以统一理解为Graphics Layer， 因此在require module的步骤上，我们需要包含“Graphic”与“GraphicsLayer”。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([</span><br><span class="line">   <span class="string">&quot;esri/config&quot;</span>,</span><br><span class="line">   <span class="string">&quot;esri/Map&quot;</span>,</span><br><span class="line">   <span class="string">&quot;esri/views/MapView&quot;</span>,</span><br><span class="line"></span><br><span class="line">   <span class="string">&quot;esri/Graphic&quot;</span>,</span><br><span class="line">   <span class="string">&quot;esri/layers/GraphicsLayer&quot;</span></span><br><span class="line"></span><br><span class="line">   ], <span class="function"><span class="keyword">function</span>(<span class="params">esriConfig,<span class="built_in">Map</span>, MapView, Graphic, GraphicsLayer</span>) </span>&#123;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Graphics layer包含一个或者多个客户端的Graphics。这个图层的渲染是在Scene view 或者MapView里完成的。</p>
+<p><em><strong>Each graphic must have its own symbol since the GraphicsLayer cannot have an associated renderer.</strong></em></p>
+<p>Tips: 通常情况下，<a target="_blank" rel="noopener" href="https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html">FeatureLayer</a> 会被prefer，因为具有 <a target="_blank" rel="noopener" href="https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#source">source</a> 这个特性 ：the FeatureLayer has more capabilities than the GraphicsLayer, including rendering, querying, and labeling。</p>
+<h3 id="Add-a-graphics-layer"><a href="#Add-a-graphics-layer" class="headerlink" title="Add a graphics layer"></a>Add a graphics layer</h3><h2 id="Tutorial-Feature-layer"><a href="#Tutorial-Feature-layer" class="headerlink" title="Tutorial: Feature layer"></a>Tutorial: Feature layer</h2><p>Feature layer: A feature layer is a dataset in a hosted feature service. Each feature layer contains features with a single geometry type (point, line, or polygon), and a set of attributes. Feature layers can be styled on the client-side with a <a target="_blank" rel="noopener" href="https://developers.arcgis.com/javascript/latest/api-reference/esri-renderers-Renderer.html">renderer</a>.</p>
+<h3 id="Add-a-feature-layer"><a href="#Add-a-feature-layer" class="headerlink" title="Add a feature layer"></a>Add a feature layer</h3><p>步骤和添加 graphics layer也是类似的</p>
+<p>首先add the module 于require 声明中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  &lt;script&gt;</span><br><span class="line">  <span class="built_in">require</span>([</span><br><span class="line">    <span class="string">&quot;esri/config&quot;</span>,</span><br><span class="line">    <span class="string">&quot;esri/Map&quot;</span>,</span><br><span class="line">    <span class="string">&quot;esri/views/MapView&quot;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&quot;esri/layers/FeatureLayer&quot;</span> <span class="comment">//添加了feature layer</span></span><br><span class="line"></span><br><span class="line">  ], <span class="function"><span class="keyword">function</span>(<span class="params">esriConfig,<span class="built_in">Map</span>, MapView, FeatureLayer</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>基于拥有了mapview的基础，添加layer：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Trailheads feature layer (points)</span></span><br><span class="line">  <span class="keyword">const</span> trailheadsLayer = <span class="keyword">new</span> FeatureLayer(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0&quot;</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>把layer添加到map里，在以上代码之下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.add(trailheadsLayer); <span class="comment">// map变量命名是map</span></span><br></pre></td></tr></table></figure>
+
+<p>以上是通过url属性将 <a target="_blank" rel="noopener" href="https://services3.arcgis.com/GVgbJbqm8hXASVYi/ArcGIS/rest/services">ArcGIS REST service</a> 上面已经有的feature layer“导入”到我们的地图上。</p>
+<p>当然，我们也可以new一个feature layer。</p>
+<h3 id="New-a-feature-layer"><a href="#New-a-feature-layer" class="headerlink" title="New a feature layer"></a>New a feature layer</h3><h3 id="Style-a-feature-layer"><a href="#Style-a-feature-layer" class="headerlink" title="Style a feature layer"></a>Style a feature layer</h3><p>示例以 point feature layer作为示范</p>
+<ol>
+<li>创建一个renderer：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> trailheadsRenderer = &#123;</span><br><span class="line">  <span class="string">&quot;type&quot;</span>: <span class="string">&quot;simple&quot;</span>,</span><br><span class="line">  <span class="string">&quot;symbol&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;type&quot;</span>: <span class="string">&quot;picture-marker&quot;</span>,</span><br><span class="line">    <span class="string">&quot;url&quot;</span>: <span class="string">&quot;http://static.arcgis.com/images/Symbols/NPS/npsPictograph_0231b.png&quot;</span>,</span><br><span class="line">    <span class="string">&quot;width&quot;</span>: <span class="string">&quot;18px&quot;</span>,</span><br><span class="line">    <span class="string">&quot;height&quot;</span>: <span class="string">&quot;18px&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>创建trailheadsLabels并设置symbol属性以使用TRL_NAME绘制一个标签：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> trailheadsLabels = &#123;</span><br><span class="line">  <span class="attr">symbol</span>: &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&quot;text&quot;</span>,</span><br><span class="line">    <span class="attr">color</span>: <span class="string">&quot;#FFFFFF&quot;</span>,</span><br><span class="line">    <span class="attr">haloColor</span>: <span class="string">&quot;#5E8D74&quot;</span>,</span><br><span class="line">    <span class="attr">haloSize</span>: <span class="string">&quot;2px&quot;</span>,</span><br><span class="line">    <span class="attr">font</span>: &#123;</span><br><span class="line">      <span class="attr">size</span>: <span class="string">&quot;12px&quot;</span>,</span><br><span class="line">      <span class="attr">family</span>: <span class="string">&quot;Noto Sans&quot;</span>,</span><br><span class="line">      <span class="attr">style</span>: <span class="string">&quot;italic&quot;</span>,</span><br><span class="line">      <span class="attr">weight</span>: <span class="string">&quot;normal&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  <span class="attr">labelPlacement</span>: <span class="string">&quot;above-center&quot;</span>,</span><br><span class="line">  <span class="attr">labelExpressionInfo</span>: &#123;</span><br><span class="line">    <span class="attr">expression</span>: <span class="string">&quot;$feature.TRL_NAME&quot;</span> <span class="comment">//类似query的操作，TRL_NAME是CSV文档里面的某一列</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>创建一个trailheads FeatureLayer。设置url属性以访问其url端点。在添加trailheads到地图之前设置渲染器和labelingInfo。特性层将自动cast渲染器和labelingInfo来创建对象的类实例。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create the layer and set the renderer</span></span><br><span class="line">  <span class="keyword">const</span> trailheads = <span class="keyword">new</span> FeatureLayer(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0&quot;</span>,</span><br><span class="line">    <span class="attr">renderer</span>: trailheadsRenderer,</span><br><span class="line">    <span class="attr">labelingInfo</span>: [trailheadsLabels]</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  map.add(trailheads);</span><br></pre></td></tr></table></figure>
+
+<p>Tips: 这里的url属性，在使用webstorm等编辑器的时候注意，有可能会给你设置成uri。这样会导致无法正常显示。</p>
+<h3 id="Import-data-as-a-feature-layer"><a href="#Import-data-as-a-feature-layer" class="headerlink" title="Import data as a feature layer"></a>Import data as a feature layer</h3><p>这里我们首先针对：point feature layer。</p>
+<p> import the csv file into Arcgis dashboard，进行一系列的设置，记住需要将这个layer设为public。之后再将以上的提到的url属性地址复制粘贴到我们的basemap上，进行同样的map.add（）操作就可以了（操作逻辑是一样的，只是元数据我们选择了自己上传而不是别人的）。</p>
+<h3 id="Display-a-pop-up-在有feature-layer的基础上"><a href="#Display-a-pop-up-在有feature-layer的基础上" class="headerlink" title="Display a pop-up (在有feature layer的基础上)"></a>Display a pop-up (在有feature layer的基础上)</h3><p>建立可以展示attributes的popup：</p>
+<p>首先定义一个popup的样式（内容）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Define a pop-up for Trailheads</span></span><br><span class="line"><span class="keyword">const</span> popupTrailheads = &#123;</span><br><span class="line">  <span class="string">&quot;title&quot;</span>: <span class="string">&quot;Trailhead&quot;</span>,</span><br><span class="line">  <span class="string">&quot;content&quot;</span>: <span class="string">&quot;&lt;b&gt;Trail:&lt;/b&gt; &#123;TRL_NAME&#125;&lt;br&gt;&lt;b&gt;City:&lt;/b&gt; &#123;CITY_JUR&#125;&lt;br&gt;&lt;b&gt;Cross Street:&lt;/b&gt; &#123;X_STREET&#125;&lt;br&gt;&lt;b&gt;Parking:&lt;/b&gt; &#123;PARKING&#125;&lt;br&gt;&lt;b&gt;Elevation:&lt;/b&gt; &#123;ELEV_FT&#125; ft&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后创建一个feature layer，并且在map上添加这个图层：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">const</span> trailheads = <span class="keyword">new</span> FeatureLayer(&#123;</span><br><span class="line">       <span class="attr">url</span>: <span class="string">&quot;https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads_Styled/FeatureServer/0&quot;</span>,</span><br><span class="line">       <span class="attr">outFields</span>: [<span class="string">&quot;TRL_NAME&quot;</span>,<span class="string">&quot;CITY_JUR&quot;</span>,<span class="string">&quot;X_STREET&quot;</span>,<span class="string">&quot;PARKING&quot;</span>,<span class="string">&quot;ELEV_FT&quot;</span>],</span><br><span class="line">       <span class="attr">popupTemplate</span>: popupTrailheads</span><br><span class="line">     &#125;);</span><br><span class="line">    </span><br><span class="line">map.add(trailheads);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Hikari</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2021/10/27/ArcGIS-API-for-Javascript/">http://example.com/2021/10/27/ArcGIS-API-for-Javascript/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Hikari的红色小桶</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ArcGIS/">ArcGIS</a><a class="post-meta__tags" href="/tags/Web/">Web</a><a class="post-meta__tags" href="/tags/JavaScript/">JavaScript</a></div><div class="post_share"><div class="social-share" data-image="https://www.esri.com/about/newsroom/wp-content/uploads/2018/11/p6p2-lg-2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/28/%E7%94%A8Python%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E3%80%81%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE/"><img class="prev-cover" src="https://upload.wikimedia.org/wikipedia/zh/thumb/6/69/Bai_She_2_poster.jpg/220px-Bai_She_2_poster.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">用Python批量修改、读取图片的元数据</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/26/%E8%BE%BE%E8%8A%AC%E5%A5%87%E8%B0%83%E8%89%B2/"><img class="next-cover" src="http://5b0988e595225.cdn.sohucs.com/images/20181010/156c5b4b60b74fdfbc4b12d630772fd3.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">达芬奇剪辑与调色</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/joey.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Hikari</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">11</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Hikari-C"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Hikari-C" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:chuangax@connect.ust.hk" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">2021年秋</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ArcGIS-API-for-JavaScript"><span class="toc-number">1.</span> <span class="toc-text">ArcGIS API for JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E7%94%A8%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.</span> <span class="toc-text">通用基本步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tutorial-Display-a-map"><span class="toc-number">1.2.</span> <span class="toc-text">Tutorial: Display a map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tips"><span class="toc-number">1.2.1.</span> <span class="toc-text">Tips:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tutorial-Add-a-point-line-and-polygon"><span class="toc-number">1.3.</span> <span class="toc-text">Tutorial: Add a point, line, and polygon</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-a-graphics-layer"><span class="toc-number">1.3.1.</span> <span class="toc-text">Add a graphics layer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tutorial-Feature-layer"><span class="toc-number">1.4.</span> <span class="toc-text">Tutorial: Feature layer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-a-feature-layer"><span class="toc-number">1.4.1.</span> <span class="toc-text">Add a feature layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#New-a-feature-layer"><span class="toc-number">1.4.2.</span> <span class="toc-text">New a feature layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Style-a-feature-layer"><span class="toc-number">1.4.3.</span> <span class="toc-text">Style a feature layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Import-data-as-a-feature-layer"><span class="toc-number">1.4.4.</span> <span class="toc-text">Import data as a feature layer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Display-a-pop-up-%E5%9C%A8%E6%9C%89feature-layer%E7%9A%84%E5%9F%BA%E7%A1%80%E4%B8%8A"><span class="toc-number">1.4.5.</span> <span class="toc-text">Display a pop-up (在有feature layer的基础上)</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%881%EF%BC%89/" title="计算机网络（1）计算机网络概述"><img src="https://wx3.sinaimg.cn/large/a6a681ebgy1gpfye75zwcj20e809iq43.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络（1）计算机网络概述"/></a><div class="content"><a class="title" href="/2021/11/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%EF%BC%881%EF%BC%89/" title="计算机网络（1）计算机网络概述">计算机网络（1）计算机网络概述</a><time datetime="2021-11-02T02:44:41.000Z" title="发表于 2021-11-02 10:44:41">2021-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/28/%E7%94%A8Python%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E3%80%81%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE/" title="用Python批量修改、读取图片的元数据"><img src="https://upload.wikimedia.org/wikipedia/zh/thumb/6/69/Bai_She_2_poster.jpg/220px-Bai_She_2_poster.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用Python批量修改、读取图片的元数据"/></a><div class="content"><a class="title" href="/2021/10/28/%E7%94%A8Python%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E3%80%81%E8%AF%BB%E5%8F%96%E5%9B%BE%E7%89%87%E7%9A%84%E5%85%83%E6%95%B0%E6%8D%AE/" title="用Python批量修改、读取图片的元数据">用Python批量修改、读取图片的元数据</a><time datetime="2021-10-28T11:47:39.000Z" title="发表于 2021-10-28 19:47:39">2021-10-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/27/ArcGIS-API-for-Javascript/" title="ArcGIS API for JavaScript"><img src="https://www.esri.com/about/newsroom/wp-content/uploads/2018/11/p6p2-lg-2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ArcGIS API for JavaScript"/></a><div class="content"><a class="title" href="/2021/10/27/ArcGIS-API-for-Javascript/" title="ArcGIS API for JavaScript">ArcGIS API for JavaScript</a><time datetime="2021-10-27T06:22:17.000Z" title="发表于 2021-10-27 14:22:17">2021-10-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/26/%E8%BE%BE%E8%8A%AC%E5%A5%87%E8%B0%83%E8%89%B2/" title="达芬奇剪辑与调色"><img src="http://5b0988e595225.cdn.sohucs.com/images/20181010/156c5b4b60b74fdfbc4b12d630772fd3.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="达芬奇剪辑与调色"/></a><div class="content"><a class="title" href="/2021/10/26/%E8%BE%BE%E8%8A%AC%E5%A5%87%E8%B0%83%E8%89%B2/" title="达芬奇剪辑与调色">达芬奇剪辑与调色</a><time datetime="2021-10-26T13:20:06.000Z" title="发表于 2021-10-26 21:20:06">2021-10-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/26/Markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Markdown学习笔记"><img src="https://theme.typora.io/media/thumbnails/drake-thumb.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Markdown学习笔记"/></a><div class="content"><a class="title" href="/2021/10/26/Markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Markdown学习笔记">Markdown学习笔记</a><time datetime="2021-10-26T12:08:13.000Z" title="发表于 2021-10-26 20:08:13">2021-10-26</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/wallpaper.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 By Hikari</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Titongpaolu, on the way</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
